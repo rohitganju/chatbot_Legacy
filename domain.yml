@@ -1,0 +1,62 @@
+actions:
+- action_hello_world
+- utter_goodbye
+- utter_greet
+- utter_modComment
+- utter_modify
+- utter_report
+- utter_selectService
+- utter_serviceResponse
+- utter_showINC
+entities:
+- comment_var
+- inc_no
+- levelOne
+intents:
+- goodbye
+- snapShot
+- greet
+- capTicket
+- service
+- capComment
+- ticketModify
+- stop
+- report
+responses:
+  utter_goodbye:
+  - text: Ok,Thanks for using Chatbot services
+  - text: Thanks for using Chatbot services
+  utter_greet:
+  - buttons:
+    - payload: /service{"levelOne":"One"}
+      title: Service Ticket Ops
+    - payload: /report{"levelOne":"Two"}
+      title: Report Generation
+    text: 'Hi there,please select your area of operation:'
+  utter_modComment:
+  - text: Ok, what comment you want to add?
+  utter_modify:
+  - text: 'Please enter KB,INC or SR number you want to update:'
+  utter_report:
+  - text: Selected report queue
+  utter_selectService:
+  - buttons:
+    - payload: /snapShot
+      title: Ticket Summary
+    - payload: /ticketModify
+      title: Modify Existing Ticket
+    text: 'Please select further category:'
+  utter_serviceResponse:
+  - text: 'Please enter any type of Service Ticket number you want to view:'
+  utter_showINC:
+  - text: 'Your incident number entered was: {inc_no}'
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  comment_var:
+    type: text
+  inc_no:
+    type: text
+  levelOne:
+    type: text
