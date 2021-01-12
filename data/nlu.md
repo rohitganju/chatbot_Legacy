@@ -12,6 +12,7 @@
 - Thanks
 - great
 - thanx
+- thanks
 
 ## intent:service
 - service
@@ -44,6 +45,7 @@
 - [INC556151](inc_no)
 - [INC77262](inc_no)
 - [kb172727](inc_no)
+- [INC1234567](inc_no)
 
 ## intent:capComment
 - [No issues found, please close ticket](comment_var)
@@ -52,3 +54,4 @@
 - [file not found in the issue](comment_var)
 - [No issue found close ticket](comment_var)
 - [no issues found please close](comment_var)
+- Added [new comment to the ticket](comment_var)

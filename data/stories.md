@@ -38,6 +38,13 @@
   - utter_serviceResponse
 * capTicket
   - action_hello_world
+  - utter_selectService
+* ticketModify
+  - utter_modComment
+* capComment
+  - action_add_comment
+  - utter_confirm_commit
+  - action_hello_world
 * goodbye
   - utter_goodbye  
 
@@ -51,6 +58,28 @@
     - utter_serviceResponse
 * capTicket{"inc_no": "kb172727"}
     - slot{"inc_no": "kb172727"}
+    - action_hello_world
+* goodbye
+    - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* service{"levelOne": "One"}
+    - slot{"levelOne": "One"}
+    - utter_selectService
+* snapShot
+    - utter_serviceResponse
+* capTicket{"inc_no": "INC1234567"}
+    - slot{"inc_no": "INC1234567"}
+    - action_hello_world
+    - utter_selectService
+* ticketModify
+    - utter_modComment
+* capComment{"comment_var": "new comment to the ticket"}
+    - slot{"comment_var": "new comment to the ticket"}
+    - action_add_comment
+    - utter_confirm_commit
     - action_hello_world
 * goodbye
     - utter_goodbye
