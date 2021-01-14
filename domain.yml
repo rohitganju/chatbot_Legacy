@@ -1,5 +1,7 @@
 actions:
+- action_add_comment
 - action_hello_world
+- utter_confirm_commit
 - utter_goodbye
 - utter_greet
 - utter_modComment
@@ -13,16 +15,18 @@ entities:
 - inc_no
 - levelOne
 intents:
-- goodbye
 - snapShot
+- goodbye
+- ticketModify
 - greet
-- capTicket
 - service
 - capComment
-- ticketModify
+- capTicket
 - stop
 - report
 responses:
+  utter_confirm_commit:
+  - text: Ok,your data was added to the service ticket
   utter_goodbye:
   - text: Ok,Thanks for using Chatbot services
   - text: Thanks for using Chatbot services
@@ -45,7 +49,7 @@ responses:
       title: Ticket Summary
     - payload: /ticketModify
       title: Modify Existing Ticket
-    text: 'Please select further category:'
+    text: What do you want to do?
   utter_serviceResponse:
   - text: 'Please enter any type of Service Ticket number you want to view:'
   utter_showINC:
