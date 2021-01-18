@@ -1,32 +1,45 @@
-actions:
-- action_add_comment
-- action_hello_world
-- utter_confirm_commit
-- utter_goodbye
-- utter_greet
-- utter_modComment
-- utter_modify
-- utter_report
-- utter_selectService
-- utter_serviceResponse
-- utter_showINC
-entities:
-- comment_var
-- inc_no
-- levelOne
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
+- report_query
+- service_now
+- report
+- greet
 - snapShot
 - goodbye
 - ticketModify
-- greet
 - service
 - capComment
 - capTicket
 - stop
-- report
+- rca
+- trade
+entities:
+- comment_var
+- inc_no
+- levelOne
+- rep_state
+- rep_team
+- rep_type
+slots:
+  comment_var:
+    type: text
+  inc_no:
+    type: text
+  levelOne:
+    type: text
+  rep_state:
+    type: text
+  rep_team:
+    type: text
+  rep_type:
+    type: text
 responses:
   utter_confirm_commit:
   - text: Ok,your data was added to the service ticket
+  utter_confirm_fetch:
+  - text: Ok, Fetching your details
   utter_goodbye:
   - text: Ok,Thanks for using Chatbot services
   - text: Thanks for using Chatbot services
@@ -36,6 +49,8 @@ responses:
       title: Service Ticket Ops
     - payload: /report{"levelOne":"Two"}
       title: Report Generation
+    - payload: /rca
+      title: RCA Assistant
     text: 'Hi there,please select your area of operation:'
   utter_modComment:
   - text: Ok, what comment you want to add?
@@ -43,24 +58,43 @@ responses:
   - text: 'Please enter KB,INC or SR number you want to update:'
   utter_report:
   - text: Selected report queue
+  utter_reportResponse:
+  - text: 'Please provide description to your report request:'
+  utter_selectReport:
+  - buttons:
+    - payload: /service_now
+      title: ServiceNow Reports
+    - payload: /trade
+      title: Trade Area Reports
+    - payload: /greet
+      title: Previous Menu
+    text: 'Please select further category:'
   utter_selectService:
   - buttons:
     - payload: /snapShot
       title: Ticket Summary
     - payload: /ticketModify
       title: Modify Existing Ticket
+    - payload: /greet
+      title: Main Menu
     text: What do you want to do?
   utter_serviceResponse:
-  - text: 'Please enter any type of Service Ticket number you want to view:'
+  - text: 'Please enter any type of Service Ticket number you want to view or update:'
   utter_showINC:
   - text: 'Your incident number entered was: {inc_no}'
-session_config:
-  carry_over_slots_to_new_session: true
-  session_expiration_time: 60
-slots:
-  comment_var:
-    type: text
-  inc_no:
-    type: text
-  levelOne:
-    type: text
+actions:
+- action_SR_report
+- action_add_comment
+- action_hello_world
+- utter_confirm_commit
+- utter_confirm_fetch
+- utter_goodbye
+- utter_greet
+- utter_modComment
+- utter_modify
+- utter_report
+- utter_reportResponse
+- utter_selectReport
+- utter_selectService
+- utter_serviceResponse
+- utter_showINC
